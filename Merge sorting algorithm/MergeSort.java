@@ -1,5 +1,39 @@
 public class MergeSort {
 
+    public static int[] merge(int[] arr1, int[] arr2) {
+
+        int arr1_idx = 0;
+        int arr2_idx = 0;
+
+        int[] sorted_arr = new int[arr1.length + arr2.length];
+
+        int idx = 0;
+        while (arr1_idx < arr1.length && arr2_idx < arr2.length) {
+            if (arr1[arr1_idx] <= arr2[arr2_idx]) {
+                sorted_arr[idx] = arr1[arr1_idx];
+                arr1_idx += 1;
+            } else {
+                sorted_arr[idx] = arr2[arr2_idx];
+                arr2_idx += 1;
+            }
+            idx += 1;
+        }
+
+        while (arr1_idx < arr1.length) {
+            sorted_arr[idx] = arr1[arr1_idx];
+            arr1_idx += 1;
+            idx += 1;
+        }
+
+        while (arr2_idx < arr2.length) {
+            sorted_arr[idx] = arr2[arr1_idx];
+            arr2_idx += 1;
+            idx += 1;
+        }
+
+        return sorted_arr;
+    }
+
     public static int[] sort(int[] arr) {
         int n = arr.length;
         if (n <= 1) {
@@ -7,14 +41,20 @@ public class MergeSort {
         }
 
         int mid = n / 2;
-        int[] left_arr = arr[0::mid];
-        int[] right_arr = arr[0::mid];
+        int[] left_arr = new int[mid];
+        int[] right_arr = new int[n - mid];
 
-        printArr(left_arr);
-        printArr(right_arr);
+        for (int i = 0; i < mid; i++) {
+            left_arr[i] = arr[i];
+        }
 
-        return left_arr;
+        for (int j = 0; j < n - mid; j++) {
+            right_arr[j] = arr[j + mid];
+        }
 
+        int[] sorted_arr = merge(sort(left_arr), sort(right_arr));
+
+        return sorted_arr;
     }
 
     public static void printArr(int[] arr) {
@@ -26,7 +66,7 @@ public class MergeSort {
     }
 
     public static void main(String[] args) {
-        int[] sample_arr = { 32, 23, 20, 17, 13, 10, 5, 1 };
+        int[] sample_arr = { 32, 23, 20, 17, 13, 10, 7, 5, 1 };
         int[] sorted_arr = sort(sample_arr);
         printArr(sorted_arr);
     }
