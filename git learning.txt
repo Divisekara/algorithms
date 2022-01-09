@@ -1,0 +1,3 @@
+by force pushing
+1.git push -f origin main
+
