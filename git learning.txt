@@ -1,3 +1,20 @@
 by force pushing
 1.git push -f origin main
 
+how to track untrack files read here for more insights
+https://stackoverflow.com/questions/572549/difference-between-git-add-a-and-git-add
+
+always try to use 
+git add -A // flag of -A instead of .
+in order to track all the untracked files
+
+git add . stands for all modifications
+
+But if there are files that have been untracked for a while then you have to use 
+git add -A
+
+At the bottom line we can use 
+git add -A this is better over git add .
+
+
+
