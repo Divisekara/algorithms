@@ -1,19 +1,13 @@
-// import java.util.ArrayList;
-// import java.util.List;
 
 public class QuickSort {
 
     public static int[] sort(int[] arr) {
-        // taking the pivot as the first element of the array
         int n = arr.length;
         if (n <= 1) {
             return arr;
         }
 
         int pivot = arr[0];
-
-        // ArrayList<Integer> left_arr = new ArrayList<Integer>();
-        // ArrayList<Integer> right_arr = new ArrayList<Integer>();
 
         int[] left_arr = new int[n];
         int[] right_arr = new int[n];

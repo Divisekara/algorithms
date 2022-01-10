@@ -10,11 +10,12 @@ def InsertionSort(arr):
             j = j-1
         
         arr[j+1] = key
-    
+        print(arr)
+
     return arr
 
 sample_arr = [1, 20,15, 10, 9,1]
-
+print(sample_arr)
 sorted_arr = InsertionSort(sample_arr)
 
 print(sorted_arr)
